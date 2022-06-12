@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
+    // GameObjects
     [SerializeField] GameObject speaker;
     [SerializeField] Canvas canvas;
     [SerializeField] Image textBubble;
@@ -12,8 +13,14 @@ public class Dialogue : MonoBehaviour
     Image dialogueBubble;
     Text dialogueText;
 
+    // Timers
     float time = 5;
     float dialogueTime = 45;
+
+    // String
+    string chosenDialogue = "";
+    string dialogueByLetter = "";
+    int currentLetter = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +40,13 @@ public class Dialogue : MonoBehaviour
             CreateBubble();
 
             // With random text
-            dialogueText.text = "This is some text!";
+            dialogueText.text = "";
+        }
+
+        // Get this tuned to a certain amount of time, like .25 seconds per letter
+        if(dialogueText != null && currentLetter < chosenDialogue.Length)
+        {
+            dialogueText.text = TextSpeed();
         }
 
         // For x many seconds
@@ -45,6 +58,7 @@ public class Dialogue : MonoBehaviour
             Debug.Log("Deleted!");
 
             dialogueTime = 45;
+            currentLetter = 0;
         }
 
         // Manage the two dialogue timers
@@ -77,12 +91,20 @@ public class Dialogue : MonoBehaviour
         dialogueBubble.transform.SetParent(canvas.transform);
         dialogueText.transform.SetParent(canvas.transform);
 
+        chosenDialogue = "This is some text!";
+
     }
 
     // Display text one letter at a time - STRETCH GOAL
     string TextSpeed()
     {
+        if(currentLetter < chosenDialogue.Length)
+        {
+            dialogueByLetter += chosenDialogue[currentLetter];
+            Debug.Log(chosenDialogue[currentLetter]);
+        }
 
-        return "";
+        currentLetter++;
+        return dialogueByLetter;
     }
 }
