@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Fishing : MonoBehaviour
 {
+
+    public bool isCast = false;
+    bool fishOn = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +18,18 @@ public class Fishing : MonoBehaviour
     void Update()
     {
         
+    }
+
+    //check if the user has pressed on the rod ;)
+    private void OnMouseDown()
+    {
+        if(isCast == false)
+        {
+            isCast = true;
+        }
+        else
+        {
+            isCast = false;
+        }
     }
 }
