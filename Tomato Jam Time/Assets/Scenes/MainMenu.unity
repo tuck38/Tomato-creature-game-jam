@@ -402,6 +402,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Endless Mode
       objectReference: {fileID: 0}
+    - target: {fileID: 2365447966625476326, guid: 964418ff63ef6eb4599e6a941944711a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2365447967132288208, guid: 964418ff63ef6eb4599e6a941944711a, type: 3}
       propertyPath: m_Text
       value: Endless
@@ -598,7 +602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2365447966625476325, guid: 964418ff63ef6eb4599e6a941944711a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -101
+      value: -37
       objectReference: {fileID: 0}
     - target: {fileID: 2365447966625476325, guid: 964418ff63ef6eb4599e6a941944711a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
