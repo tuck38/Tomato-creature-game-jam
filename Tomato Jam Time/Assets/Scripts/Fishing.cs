@@ -5,7 +5,8 @@ using UnityEngine;
 public class Fishing : MonoBehaviour
 {
 
-    public bool isCast = false;
+    [SerializeField] Casting casting;
+    bool isCast = false;
     bool fishOn = false;
 
     // Start is called before the first frame update
@@ -25,10 +26,12 @@ public class Fishing : MonoBehaviour
     {
         if(isCast == false)
         {
+            casting.castRod();
             isCast = true;
         }
         else
         {
+            casting.reelInRod();
             isCast = false;
         }
     }
