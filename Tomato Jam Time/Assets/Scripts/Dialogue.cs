@@ -44,6 +44,12 @@ public class Dialogue : MonoBehaviour
 
             // With random text
             text.text = "";
+
+            // Give a little extra time if it's a joke
+            if(joke)
+            {
+                dialogueTime = 75;
+            }
         }
 
         // Get this tuned to a certain amount of time, like .25 seconds per letter
