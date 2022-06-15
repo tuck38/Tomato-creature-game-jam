@@ -9,18 +9,28 @@ public class Dialogue : MonoBehaviour
     [SerializeField] GameObject speaker;
     [SerializeField] Image textBubble;
     [SerializeField] Text text;
-
+    [SerializeField] DialogueData scriptDialogue;
+    [SerializeField] AudioSource sound;
+    [SerializeField] float volume = 0.4f;
 
     // Timers
-    float time = 5;
-    float dialogueTime = 45;
+    float time = 45;
+    float dialogueTime = 30;
     float timeBetweenLetter = 0.2f;
 
     // String
     string chosenDialogue = "";
     string dialogueByLetter = "";
     int currentLetter = 0;
-    bool joke= false;
+    // Types
+    List<string> advice = new List<string>();
+    List<string> extra = new List<string>();
+    List<string> jokes = new List<string>();
+    List<string> jokeEnds = new List<string>();
+    int ranType = 1;
+    int ranDialogue = 0;
+    bool jokeFinished = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +38,11 @@ public class Dialogue : MonoBehaviour
         textBubble.enabled = false;
         text.enabled = false;
 
-        textBubble.transform.position = new Vector3(Screen.width / 2, textBubble.rectTransform.rect.height / 2, 0);
+        textBubble.transform.position = new Vector3(Screen.width / 2, textBubble.rectTransform.rect.height / 2 - 1, 0);
+        advice = scriptDialogue.AdviceLines;
+        extra = scriptDialogue.ExtraLines;
+        jokes = scriptDialogue.JokeQuestionLines;
+        jokeEnds = scriptDialogue.JokeAnswerLines;
     }
 
     // Update is called once per frame
@@ -45,26 +59,65 @@ public class Dialogue : MonoBehaviour
             // With random text
             text.text = "";
 
-            // Give a little extra time if it's a joke
-            if(joke)
+            // Determine dialogue type w/ random line
+            ranType = (int)Random.Range(0, 2);
+
+            switch (ranType)
             {
-                dialogueTime = 75;
+                // Advice
+                case (0):
+                {
+                    ranDialogue = (int)Random.Range(0, advice.Count - 1);
+                    chosenDialogue = advice[ranDialogue];
+                    break; 
+                }
+
+                // Joke
+                case (1):
+                {
+                    ranDialogue = (int)Random.Range(0, jokes.Count - 1);
+                    chosenDialogue = jokes[ranDialogue];
+                    // Give extra time for joke
+                    dialogueTime = 20;
+                    break;
+                }
+
+                // Extra
+                case (2):
+                {
+                    ranDialogue = (int)Random.Range(0, extra.Count - 1);
+                    chosenDialogue = extra[ranDialogue];
+                    break;
+                }
             }
         }
 
         // Get this tuned to a certain amount of time, like .25 seconds per letter
-        if(textBubble.enabled && currentLetter < chosenDialogue.Length)
+        if(textBubble.enabled)
         {
-            if(timeBetweenLetter <= 0)
-            {
-                text.text = TextSpeed();
-            }
+                if (timeBetweenLetter <= 0)
+                {
+                    text.text = TextSpeed();
+                }
 
             timeBetweenLetter = timeBetweenLetter - Time.deltaTime;
         }
 
+        // Start end of joke
+        if (dialogueTime <= 0 && !jokeFinished && ranType == 1)
+        {
+            dialogueTime = 45;
+            currentLetter = 0;
+            timeBetweenLetter = 0.2f;
+
+            chosenDialogue = jokeEnds[ranDialogue];
+            dialogueByLetter = "";
+
+            jokeFinished = true;
+            dialogueByLetter = "";
+        }
         // For x many seconds
-        if(dialogueTime <= 0)
+        else if (dialogueTime <= 0)
         {
             dialogueTime = 45;
             currentLetter = 0;
@@ -72,9 +125,11 @@ public class Dialogue : MonoBehaviour
 
             textBubble.enabled = false;
             text.enabled = false;
+            jokeFinished = false;
+            dialogueByLetter = "";
         }
 
-        // Manage the two dialogue timers
+        // Manage the dialogue timers
         if (textBubble.enabled && text.enabled)
         {
             dialogueTime = dialogueTime - Time.deltaTime;
@@ -91,17 +146,14 @@ public class Dialogue : MonoBehaviour
         // Display Bubble
         textBubble.enabled = true;
         text.enabled = true;
-
-        chosenDialogue = "This is some text!";
     }
 
     // Display text one letter at a time
     string TextSpeed()
     {
-        if(currentLetter < chosenDialogue.Length)
+        if (currentLetter < chosenDialogue.Length)
         {
             dialogueByLetter += chosenDialogue[currentLetter];
-            Debug.Log(chosenDialogue[currentLetter]);
         }
 
         timeBetweenLetter = 0.2f;
