@@ -7,25 +7,28 @@ public class Dialogue : MonoBehaviour
 {
     // GameObjects
     [SerializeField] GameObject speaker;
-    [SerializeField] Canvas canvas;
     [SerializeField] Image textBubble;
-    [SerializeField] Text textType;
-    Image dialogueBubble;
-    Text dialogueText;
+    [SerializeField] Text text;
+
 
     // Timers
     float time = 5;
     float dialogueTime = 45;
+    float timeBetweenLetter = 0.2f;
 
     // String
     string chosenDialogue = "";
     string dialogueByLetter = "";
     int currentLetter = 0;
+    bool joke= false;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        textBubble.enabled = false;
+        text.enabled = false;
+
+        textBubble.transform.position = new Vector3(Screen.width / 2, textBubble.rectTransform.rect.height / 2, 0);
     }
 
     // Update is called once per frame
@@ -40,29 +43,33 @@ public class Dialogue : MonoBehaviour
             CreateBubble();
 
             // With random text
-            dialogueText.text = "";
+            text.text = "";
         }
 
         // Get this tuned to a certain amount of time, like .25 seconds per letter
-        if(dialogueText != null && currentLetter < chosenDialogue.Length)
+        if(textBubble.enabled && currentLetter < chosenDialogue.Length)
         {
-            dialogueText.text = TextSpeed();
+            if(timeBetweenLetter <= 0)
+            {
+                text.text = TextSpeed();
+            }
+
+            timeBetweenLetter = timeBetweenLetter - Time.deltaTime;
         }
 
         // For x many seconds
         if(dialogueTime <= 0)
         {
-            // Doesn't fully delete...
-            Destroy(dialogueText);
-            Destroy(dialogueBubble);
-            Debug.Log("Deleted!");
-
             dialogueTime = 45;
             currentLetter = 0;
+            timeBetweenLetter = 0.2f;
+
+            textBubble.enabled = false;
+            text.enabled = false;
         }
 
         // Manage the two dialogue timers
-        if (dialogueBubble != null && dialogueText != null)
+        if (textBubble.enabled && text.enabled)
         {
             dialogueTime = dialogueTime - Time.deltaTime;
         }
@@ -75,27 +82,14 @@ public class Dialogue : MonoBehaviour
     // Create speech bubble
     void CreateBubble()
     {
-        // Create bubble
-        dialogueBubble = Instantiate<Image>(textBubble);
-        dialogueText = Instantiate<Text>(textType);
-
-        // Set positions
-        Vector3 pos = new Vector3(speaker.transform.position.x + 30, speaker.transform.position.y, speaker.transform.position.z);
-        Debug.Log(pos);
-
-        Debug.Log(dialogueText.transform.position);
-        dialogueText.transform.position = Vector3.zero;
-        dialogueBubble.transform.position = Vector3.zero;
-
-        // Add to canvas
-        dialogueBubble.transform.SetParent(canvas.transform);
-        dialogueText.transform.SetParent(canvas.transform);
+        // Display Bubble
+        textBubble.enabled = true;
+        text.enabled = true;
 
         chosenDialogue = "This is some text!";
-
     }
 
-    // Display text one letter at a time - STRETCH GOAL
+    // Display text one letter at a time
     string TextSpeed()
     {
         if(currentLetter < chosenDialogue.Length)
@@ -103,6 +97,8 @@ public class Dialogue : MonoBehaviour
             dialogueByLetter += chosenDialogue[currentLetter];
             Debug.Log(chosenDialogue[currentLetter]);
         }
+
+        timeBetweenLetter = 0.2f;
 
         currentLetter++;
         return dialogueByLetter;
