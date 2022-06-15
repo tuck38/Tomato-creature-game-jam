@@ -10,7 +10,7 @@ public class SwitchSceneButton : MonoBehaviour
     // Just load the next scene based on what I toss in :)
     public void SwitchScene()
     {
-        //SceneManager.LoadScene(sceneIndex);
+        SceneManager.LoadScene(sceneIndex);
         Debug.Log("Clicked!" + sceneIndex);
     }
 }
