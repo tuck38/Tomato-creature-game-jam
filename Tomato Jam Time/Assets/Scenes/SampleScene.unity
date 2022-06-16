@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44095004, g: 0.26733062, b: 0.02435186, a: 1}
+  m_IndirectSpecularColor: {r: 0.5328126, g: 0.4867397, b: 0.2620479, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1595,7 +1595,7 @@ MonoBehaviour:
   casting: {fileID: 178801932}
   scoring: {fileID: 1451045433}
   timeOnScreen: {fileID: 1166417002}
-  fish: {fileID: 919132149155446097, guid: e6223532ccf375b4aaac3771d730545d, type: 3}
+  fish: {fileID: 2088731589656014636, guid: 27d09ae7051b58a4d816ea0e488987c6, type: 3}
 --- !u!65 &3469287837308415217
 BoxCollider:
   m_ObjectHideFlags: 0
