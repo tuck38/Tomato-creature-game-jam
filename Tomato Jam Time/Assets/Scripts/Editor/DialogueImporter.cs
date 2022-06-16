@@ -145,6 +145,8 @@ public class DialogueImporter : EditorWindow
 						}
 					}
 				}
+
+				AssetDatabase.SaveAssets();
 			}
 		}
 		catch (Exception e)
