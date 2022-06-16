@@ -29,9 +29,9 @@ public class DadCreature : MonoBehaviour
     {
 		// make creature look at player
 		Vector3 playerCreatureVector = transform.position - playerTransform.position;
-		transform.forward = playerCreatureVector;
+		//transform.forward = playerCreatureVector;
 		// this currently forces a "looming" perspective, if you want it to just face the player flat, do this:
-		// transform.forward = new Vector3(playerCreatureVector.x, transform.forward.y, playerCreatureVector.z);
+		transform.forward = new Vector3(playerCreatureVector.x, transform.forward.y, playerCreatureVector.z);
 
 		// check player isn't looking at monster
 		var playerLookingAngle = Vector3.Angle(transform.position, cameraTransform.forward);

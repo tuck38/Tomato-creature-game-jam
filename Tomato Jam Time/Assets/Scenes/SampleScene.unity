@@ -206,6 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 85341756}
   - component: {fileID: 85341755}
+  - component: {fileID: 85341757}
   m_Layer: 0
   m_Name: dad01
   m_TagString: Untagged
@@ -280,6 +281,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 6.859, y: 26.481, z: 0.926}
+--- !u!114 &85341757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85341754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 167651bfbcc214448aa9297c72cac816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerTransform: {fileID: 1528752756}
+  cameraTransform: {fileID: 963194228}
+  vanishAngle: 90
 --- !u!1 &178801931 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4509735992427481487, guid: 1032d00076382884480e11c813d88152, type: 3}
@@ -666,7 +682,7 @@ MonoBehaviour:
   speaker: {fileID: 0}
   textBubble: {fileID: 1363694993}
   text: {fileID: 1755311254}
-  scriptDialogue: {fileID: 11400000, guid: f7bdf3059e59c664da9fbb29bac55dfe, type: 2}
+  scriptDialogue: {fileID: 0}
   sound: {fileID: 0}
   volume: 0.4
 --- !u!114 &942973985
