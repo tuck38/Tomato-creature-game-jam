@@ -186,6 +186,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 1b4181bb3200f5145ba1a0abfe2507b8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 03f263a0d6fd9f24ba5f07834fe6028c, type: 2}
     - target: {fileID: 919132149155446097, guid: 1b4181bb3200f5145ba1a0abfe2507b8, type: 3}
       propertyPath: m_Name
       value: Boat01
@@ -882,6 +886,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: f9e4f6d4a6281e342b040d1ba1df3730, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ad98b7d54df3e5c499277d832e7038d0, type: 2}
     - target: {fileID: 919132149155446097, guid: f9e4f6d4a6281e342b040d1ba1df3730, type: 3}
       propertyPath: m_Name
       value: boatEdge01
