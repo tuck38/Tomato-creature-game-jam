@@ -302,7 +302,7 @@ RectTransform:
   - {fileID: 1796209781}
   - {fileID: 1166417001}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -452,6 +452,8 @@ MonoBehaviour:
   textBubble: {fileID: 1363694993}
   text: {fileID: 1755311254}
   scriptDialogue: {fileID: 11400000, guid: f7bdf3059e59c664da9fbb29bac55dfe, type: 2}
+  sound: {fileID: 0}
+  volume: 0.4
 --- !u!114 &942973985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,7 +506,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.27362052, g: 0.4753886, b: 0.7924528, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -779,7 +781,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.7547, y: -174.53}
+  m_AnchoredPosition: {x: 0.7547, y: -305.8}
   m_SizeDelta: {x: 443.3093, y: 124.9399}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1363694993
@@ -1191,7 +1193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 827162891012587609, guid: 43c06afbe888d3a4781c2303be47e106, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 827162891012587609, guid: 43c06afbe888d3a4781c2303be47e106, type: 3}
       propertyPath: m_LocalPosition.x
