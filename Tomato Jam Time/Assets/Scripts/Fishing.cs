@@ -18,6 +18,9 @@ public class Fishing : MonoBehaviour
     float time = 1200;
     float fishTime = 0;
 
+    // Fish spawning
+    [SerializeField] GameObject fish;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +40,7 @@ public class Fishing : MonoBehaviour
                 {
                     // Change the score
                     score++;
+                    CreateFish();
                 }
 
                 // Pick a random time
@@ -69,5 +73,14 @@ public class Fishing : MonoBehaviour
             casting.reelInRod();
             isCast = false;
         }
+    }
+
+    private void CreateFish()
+    {
+        GameObject tempFish;
+        tempFish = Instantiate(fish);
+        tempFish.transform.position = new Vector3(Random.Range(-1, 1) , 2.6f, Random.Range(-1, 1));
+        tempFish.gameObject.transform.localScale = new Vector3(50, 50, 50);
+        Debug.Log("Spawned Fish");
     }
 }
