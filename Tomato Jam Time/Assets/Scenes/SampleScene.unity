@@ -274,7 +274,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85341754}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.19, y: 3.477, z: -1.73}
+  m_LocalPosition: {x: -2.19, y: 3.477, z: -1.74}
   m_LocalScale: {x: 0.19609693, y: 0.19609693, z: 0.19609693}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -683,7 +683,70 @@ MonoBehaviour:
   speaker: {fileID: 0}
   textBubble: {fileID: 1363694993}
   text: {fileID: 1755311254}
-  scriptDialogue: {fileID: 11400000, guid: a90222262294e794187c596ba4e2dd79, type: 2}
+  JokeQuestionLines:
+  - Why is it so easy to weigh fish?
+  - Where does a fisherman go to get his hair cut?
+  - What kind of music should you listen to while fishing?
+  - What do you call a fish with no eyes?
+  - Why do fishes swim in schools?
+  - How did the fish commit fraud?
+  - How do fish get from place to place while playing golf?
+  - I had a dream that I knighted an electric fish
+  - Where do fish keep their money?
+  - What do you call a king fish?
+  - I made some fish tacos last night
+  - Cook a man a fish and you feed him for a day.
+  - Why are fish so gullible?
+  - What did the fish say when it hit a concrete wall
+  - What did the fisherman say to the card magician?
+  - What do you call a Sith Lord who likes to go fishing?
+  - Which fish dresses the best?
+  - "What\u2019s a sea serpent\u2019s favorite meal?"
+  JokeAnswerLines:
+  - Because they have their own scales!
+  - The bobber shop.
+  - Something catchy!
+  - A fsh
+  - Because they cant walk
+  - A pondsy scheme.
+  - By golf carp.
+  - It was Sir Eel
+  - In a riverbank.
+  - A Tsardine
+  - They just ignored them and swam away
+  - But teach a man to fish and you get rid of him for the whole weekend.
+  - They fall for things hook, line, and sinker!
+  - "\u201CDam!\u201D"
+  - Take a cod, any cod.
+  - Darth Wader.
+  - "The swordfish \u2014 it always looks sharp!"
+  - Fish and ships.
+  AdviceLines:
+  - "Don\u2019t drift back to where you started"
+  - "When you know things don\u2019t go your way, will you do the right thing anyway?"
+  - No one ever fishes the same river twice because no one is ever the same and no
+    river is ever the same.
+  - "You\u2019re not going to catch any fish unless you wet your line, so keep casting."
+  ExtraLines:
+  - Common carp can live up to 20 years. There is a report of a common carp living
+    an astounding 47 years in captivity.
+  - The average size of the common carp is from 40 to 80 cm (15.75 to 31.5 inches)
+    in length and weight from 2 to 14 kg (4.5 to 31 lb)
+  - The largest recorded carp, caught by an angler, Colin Smith, in 2013 in France,
+    weighed 45.59 kilograms (100.5 lb).
+  - There are over 20,000 species of fish.
+  - Bananas are a great snack but leave them at home.
+  - Greenland sharks have an average lifespan of 200 years and their meat is poisonous.
+  - "Largemouth and smallmouth bass aren\u2019t bass, they\u2019re sunfish."
+  - "Fish have rings like trees - you can count them to tell their age. They\u2019re
+    called otoliths."
+  - Common carp were brought to the United States in 1831. In the late 19th century,
+    they were distributed throughout the country by the government as a food-fish,
+    but they are now rarely eaten in the U.S., where they are considered pests.
+  - Keep up the good work!
+  - "I\u2019m proud of you kiddo."
+  - "You\u2019re doing great!"
+  - "Wow, you\u2019re becoming a real fishing expert!"
   sound: {fileID: 0}
   volume: 0.4
 --- !u!114 &942973985
