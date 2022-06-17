@@ -683,7 +683,7 @@ MonoBehaviour:
   speaker: {fileID: 0}
   textBubble: {fileID: 1363694993}
   text: {fileID: 1755311254}
-  scriptDialogue: {fileID: 11400000, guid: f7bdf3059e59c664da9fbb29bac55dfe, type: 2}
+  scriptDialogue: {fileID: 11400000, guid: a90222262294e794187c596ba4e2dd79, type: 2}
   sound: {fileID: 0}
   volume: 0.4
 --- !u!114 &942973985
