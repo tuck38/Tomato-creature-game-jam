@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.IO;
@@ -10,8 +10,7 @@ using System;
 public class DialogueImporter : EditorWindow
 {
 	TextAsset file;
-	string assetName = "";
-	const string defaultAssetName = "DialogueAsset";
+	Dialogue dialogue;
 
 	enum DialogueType	
 	{
@@ -42,7 +41,7 @@ public class DialogueImporter : EditorWindow
 		EditorGUILayout.BeginHorizontal();
 		if (file != null && Application.isEditor && !Application.isPlaying)
 		{
-			assetName = EditorGUILayout.TextField(new GUIContent("New Asset Name:", "Name for new scriptable object that will be created/overwritten"), assetName);
+			dialogue = (Dialogue)EditorGUILayout.ObjectField(dialogue, typeof(Dialogue), allowSceneObjects: true);
 			if (GUILayout.Button("Import"))
 			{
 				ImportDialogue(file);
@@ -65,28 +64,11 @@ public class DialogueImporter : EditorWindow
 			using (var reader = new StreamReader(filePath))
 			{
 				// create scriptable object with required data
-				DialogueData asset = ScriptableObject.CreateInstance<DialogueData>();
-
-				if (string.IsNullOrEmpty(assetName))
-				{
-					AssetDatabase.CreateAsset(asset, $"Assets/Scripts/ScriptableObjects/{defaultAssetName}.asset");
-				}
-				else if (assetName.IndexOfAny(Path.GetInvalidFileNameChars()) > 0)
-				{
-					Debug.LogWarning("File name contains invalid characters!");
-					return;
-				}
-				else
-				{
-					AssetDatabase.CreateAsset(asset, $"Assets/Scripts/ScriptableObjects/{assetName}.asset");
-				}
-				AssetDatabase.SaveAssets();
-
-				EditorUtility.FocusProjectWindow();
-
-				Selection.activeObject = asset;
-
 				DialogueType dType = DialogueType.None;
+				dialogue.JokeQuestionLines = new List<string>();
+				dialogue.JokeAnswerLines = new List<string>();
+				dialogue.AdviceLines = new List<string>();
+				dialogue.ExtraLines = new List<string>();
 
 				string line;
 				// the flipper switch for joke questions and answers
@@ -121,23 +103,23 @@ public class DialogueImporter : EditorWindow
 								{
 									if (jokeQuestion)
 									{
-										asset.JokeQuestionLines.Add(line);
+										dialogue.JokeQuestionLines.Add(line);
 									}
 									else
 									{
-										asset.JokeAnswerLines.Add(line);
+										dialogue.JokeAnswerLines.Add(line);
 									}
 									jokeQuestion = !jokeQuestion;
 									break;
 								}
 							case DialogueType.Advice:
 								{
-									asset.AdviceLines.Add(line);
+									dialogue.AdviceLines.Add(line);
 									break;
 								}
 							case DialogueType.Other:
 								{
-									asset.ExtraLines.Add(line);
+									dialogue.ExtraLines.Add(line);
 									break;
 								}
 							default:

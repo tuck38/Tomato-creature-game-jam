@@ -9,8 +9,11 @@ public class Dialogue : MonoBehaviour
     [SerializeField] GameObject speaker;
     [SerializeField] Image textBubble;
     [SerializeField] Text text;
-    [SerializeField] DialogueData scriptDialogue;
-    [SerializeField] AudioSource sound;
+	public List<string> JokeQuestionLines = new();
+	public List<string> JokeAnswerLines = new();
+	public List<string> AdviceLines = new();
+	public List<string> ExtraLines = new();
+	[SerializeField] AudioSource sound;
     [SerializeField] float volume = 0.4f;
 
     // Timers
@@ -39,10 +42,10 @@ public class Dialogue : MonoBehaviour
         text.enabled = false;
 
         textBubble.transform.position = new Vector3(Screen.width / 2, textBubble.rectTransform.rect.height / 2 - 1, 0);
-        advice = scriptDialogue.AdviceLines;
-        extra = scriptDialogue.ExtraLines;
-        jokes = scriptDialogue.JokeQuestionLines;
-        jokeEnds = scriptDialogue.JokeAnswerLines;
+        advice = AdviceLines;
+        extra = ExtraLines;
+        jokes = JokeQuestionLines;
+        jokeEnds = JokeAnswerLines;
     }
 
     // Update is called once per frame
