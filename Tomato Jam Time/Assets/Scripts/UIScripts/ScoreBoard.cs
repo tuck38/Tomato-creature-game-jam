@@ -12,8 +12,8 @@ public class ScoreBoard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        fishUI.transform.position = new Vector3(35, Screen.height - 20, 0);
-        timer.transform.position = new Vector3(Screen.width + 30, Screen.height - 20, 0);
+        fishUI.transform.position = new Vector3(fishUI.transform.transform.localScale.x + 70, Screen.height - 40, 0);
+        timer.transform.position = new Vector3(Screen.width + 30, Screen.height - 40, 0);
     }
 
     // Update is called once per frame
